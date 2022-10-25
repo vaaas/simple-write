@@ -32,11 +32,20 @@ export default function App({ cache }: Props) {
 
 	onMount(async () => {
 		setImage(await cache.get('pic'))
+		setText(localStorage.getItem('caption') || '')
 	})
 
 	const goFullscreen = () => {
 		document.documentElement.requestFullscreen()
 	}
+
+	createEffect(() => {
+		const txt = text()
+		if (txt.length === 0)
+			return
+		else
+			localStorage.setItem('caption', txt)
+	})
 
 	return <Switch>
 		<Match when={image() !== undefined}>
