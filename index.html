@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<meta name='viewport' content='width=device-width, initial-scale=1'/>
+	<title>Simple Write</title>
+	<script src='src/index.js' type='module'></script>
+	<style>
+		html {
+			width: 100vw;
+			height: 100vh;
+			background: #000;
+			color: #fff;
+			font-size: 22px;
+		}
+		body {
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0;
+			padding: 0;
+		}
+		body.top { align-items: baseline; }
+		img {
+			display: block;
+			max-width: 100vw;
+			max-height: 100vh;
+			margin: auto;
+		}
+		#edit {
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+		}
+		textarea {
+			--width: calc(min(50rem, 100vw) - 4px);
+			font-size: 1rem;
+			margin: auto;
+			font-family: sans-serif;
+			display: block;
+			outline: none;
+			background: rgba(0,0,0,0.1);
+			border: none;
+			border-top: 2px solid rgba(255,255,255,0.2);
+			caret-color: #f44;
+			color: #fff;
+			position: absolute;
+			bottom: 0;
+			height: 50vh;
+			width: var(--width);
+			left: calc((100vw - var(--width))/2);
+			text-shadow:
+				1px 1px 1px #000,
+				-1px 1px 1px #000,
+				1px -1px 1px #000,
+				-1px -1px 1px #000;
+		}
+		.hide { display: none !important; }
+		#clear {
+			position: absolute;
+			top: 0.5em;
+			right: 0.5em;
+		}
+		button {
+			cursor: pointer;
+			background: rgba(0,0,0,0.33);
+			backdrop-filter: blur(2px);
+			color: rgba(255,255,255,0.9);
+			border: 1px solid rgba(255,255,255,0.5);
+			border-radius: 2px;
+		}
+	</style>
+</head>
+<body>
+	<section id='input' class='hide'>
+		<input type='file' accept='image/*'/>
+	</section>
+
+	<section id='edit' class='hide'>
+		<img/>
+		<textarea></textarea>
+		<button id='clear'>x</button>
+	</section>
+</body>
+</html>
