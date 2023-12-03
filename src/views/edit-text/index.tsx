@@ -14,9 +14,9 @@ export function EditText(props: {
 			props.onUpdateText(e.target.value)
 	}
 
-	return <section id='edit-text'>
-		<img id='image' src={props.image} onclick={props.onImageClick}/>
-		<textarea id='editor' onchange={onTextChange}>{props.text}</textarea>
+	return <section class='full flex'>
+		<img class='block max-full margin-auto' src={props.image} onclick={props.onImageClick}/>
+		<textarea class='absolute no-whitespace block no-border' id='editor' onchange={onTextChange}>{props.text}</textarea>
 		<ClearButton onClick={props.onClearClick}/>
 	</section>
 }
