@@ -1,4 +1,4 @@
-import type { EventHandler } from '@/functions'
+import { EventHandler } from '../../../functions'
 import './EditText.sass'
 
 export function EditText(props: {

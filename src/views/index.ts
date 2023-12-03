@@ -1,2 +1,2 @@
-export * from './EditText'
-export * from './SelectImage'
+export * from './edit-text'
+export * from './select-image'
