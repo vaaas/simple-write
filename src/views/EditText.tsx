@@ -1,33 +1,21 @@
+import { EventHandler } from '../functions'
 import './EditText.sass'
 
-import { Accessor } from 'solid-js';
-
-export type Props = {
-	image: Accessor<string>;
-	imageClicked: (e: MouseEvent) => void;
-	clearClicked: (e: MouseEvent) => void;
-	text: Accessor<string>;
-	updateText: (e: string) => void;
-}
-
-export default function EditText({
-	image,
-	imageClicked,
-	clearClicked,
-	updateText,
-	text
-}: Props) {
-	const textChanged = (e: Event) => {
-		updateText((e.target as HTMLTextAreaElement).value)
+export function EditText(props: {
+	image: string
+	text: string
+	onUpdateText: EventHandler<string>
+	onImageClick: EventHandler<MouseEvent>
+	onClearClick: EventHandler<MouseEvent>
+}) {
+	function onTextChange(e: Event) {
+		if (e.target instanceof HTMLTextAreaElement)
+			props.onUpdateText(e.target.value)
 	}
 
 	return <section id='edit-text'>
-		<img src={image()} onclick={imageClicked}/>
-
-		<textarea onchange={textChanged}>
-			{text()}
-		</textarea>
-
-		<button id='clear' onclick={clearClicked}>×</button>
+		<img src={props.image} onclick={props.onImageClick}/>
+		<textarea onchange={onTextChange}>{props.text}</textarea>
+		<button id='clear' onclick={props.onClearClick}>×</button>
 	</section>
 }

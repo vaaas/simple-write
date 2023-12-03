@@ -1,3 +1,5 @@
+export type IStorage = InstanceType<typeof B64Storage>
+
 export default class B64Storage {
 	cache: Cache
 

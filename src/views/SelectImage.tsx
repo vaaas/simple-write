@@ -1,19 +1,15 @@
-export type Props = {
-	onFile: (x: File|undefined) => void;
-}
+import { EventHandler } from '../functions'
 
-export default function SelectImage({ onFile }: Props) {
-	const onChange = (x: Event) => {
-		const target = x.target as HTMLInputElement
-		if (target && target.files && target.files.length)
-			onFile(target.files[0])
+export function SelectImage(props: { onFile: EventHandler<File|undefined> }) {
+	function onChange(x: Event) {
+		const target = x.target
+		if (target instanceof HTMLInputElement && target.files && target.files.length)
+			props.onFile(target.files[0])
 		else
-			onFile(undefined)
+			props.onFile(undefined)
 	}
 
-	return (
-		<section id='select-image'>
-			<input type='file' accept='image/*' onChange={onChange}/>
-		</section>
-	)
+	return <section id='select-image'>
+		<input type='file' accept='image/*' onChange={onChange}/>
+	</section>
 }
