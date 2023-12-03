@@ -1,4 +1,4 @@
-import type { EventHandler } from '@/functions'
+import type { EventHandler } from '@/util/functions'
 import './index.sass'
 import { ClearButton } from './components/clear-button'
 

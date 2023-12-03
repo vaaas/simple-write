@@ -1,4 +1,4 @@
-import { EventHandler } from '@/functions'
+import { EventHandler } from '@/util/functions'
 import './index.sass'
 
 export function ClearButton(props: { onClick: EventHandler<MouseEvent> }) {

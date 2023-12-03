@@ -1,6 +1,6 @@
 import { type Accessor, type Setter, createSignal, createEffect } from 'solid-js'
 import { IStorage } from './B64Storage'
-import { read_file } from './files'
+import { read_file } from '../util/files'
 
 export class State {
 	cache_storage: IStorage

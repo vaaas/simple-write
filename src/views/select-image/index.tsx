@@ -1,4 +1,4 @@
-import type { EventHandler } from '@/functions'
+import type { EventHandler } from '@/util/functions'
 
 export function SelectImage(props: { onFile: EventHandler<File|undefined> }) {
 	function onChange(x: Event) {
